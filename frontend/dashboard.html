@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - SuuSri Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">SuuSri Task Manager</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar" id="sidebar">
+      <ul>
+        <li>Dashboard</li>
+        <li>My Tasks</li>
+        <li>Settings</li>
+        <li>Logout</li>
+      </ul>
+    </aside>
+
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+    <main class="main-content">
+      <div class="profile-card">
+        <h3>Vaishnavi Bawane</h3>
+        <p>Full-Stack Developer Intern</p>
+        <p>SuuSri AI</p>
+      </div>
+      <h2>Welcome to your Dashboard</h2>
+      <p>This is where your tasks will appear.</p>
+    </main>
+
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
