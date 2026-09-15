@@ -8,7 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/suusri_websites')
+// Use MONGO_URI env var for production (MongoDB Atlas), fallback to localhost for local dev
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/suusri_websites';
+
+mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('Connection error:', err));
 
@@ -29,6 +32,11 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS
   }
 });
+
+// Verify SMTP credentials on startup
+transporter.verify()
+  .then(() => console.log('SMTP transporter verified — ready to send emails'))
+  .catch((err) => console.error('SMTP verification failed:', err.message));
 
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -55,21 +63,27 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Message must be between 10 and 500 characters.' });
     }
 
+    // Save to database first — this must succeed
     const newContact = new Contact({ industry, name, email, message });
     await newContact.save();
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.COMPANY_EMAIL,
-      subject: `New Enquiry from ${industry} website`,
-      html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Industry:</strong> ${industry}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `
-    });
+    // Send email notification — don't let email failure lose the submission
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.COMPANY_EMAIL,
+        subject: `New Enquiry from ${industry} website`,
+        html: `
+          <h3>New Contact Form Submission</h3>
+          <p><strong>Industry:</strong> ${industry}</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong> ${message}</p>
+        `
+      });
+    } catch (emailErr) {
+      console.error('Email sending failed (submission saved to DB):', emailErr.message);
+    }
 
     res.status(201).json({ success: true, message: 'Thank you! We will contact you soon.' });
 
@@ -78,6 +92,7 @@ app.post('/api/contact', async (req, res) => {
     res.status(500).json({ success: false, message: 'Something went wrong. Please try again later.' });
   }
 });
+
 const reservationSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -102,23 +117,29 @@ app.post('/api/reservation', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Please enter a valid email address.' });
     }
 
+    // Save to database first — this must succeed
     const newReservation = new Reservation({ name, email, phone, guests, date, time });
     await newReservation.save();
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.COMPANY_EMAIL,
-      subject: `New Table Reservation Request`,
-      html: `
-        <h3>New Restaurant Reservation</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Guests:</strong> ${guests}</p>
-        <p><strong>Date:</strong> ${date}</p>
-        <p><strong>Time:</strong> ${time}</p>
-      `
-    });
+    // Send email notification — don't let email failure lose the reservation
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.COMPANY_EMAIL,
+        subject: `New Table Reservation Request`,
+        html: `
+          <h3>New Restaurant Reservation</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Guests:</strong> ${guests}</p>
+          <p><strong>Date:</strong> ${date}</p>
+          <p><strong>Time:</strong> ${time}</p>
+        `
+      });
+    } catch (emailErr) {
+      console.error('Email sending failed (reservation saved to DB):', emailErr.message);
+    }
 
     res.status(201).json({ success: true, message: 'Your table has been reserved! A confirmation email has been sent.' });
 
@@ -127,6 +148,7 @@ app.post('/api/reservation', async (req, res) => {
     res.status(500).json({ success: false, message: 'Something went wrong. Please try again later.' });
   }
 });
+
 app.get('/api/contact', async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -136,5 +158,9 @@ app.get('/api/contact', async (req, res) => {
   }
 });
 
-const PORT = 5000;
+// For local development
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Export for Vercel serverless
+module.exports = app;

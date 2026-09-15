@@ -120,7 +120,7 @@ function toggleFAQ(element) {
   }
 }
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = '';
 
 /* Contact Form Submission (Express Backend /api/contact) */
 function initContactForm() {
@@ -162,10 +162,9 @@ function initContactForm() {
         formStatus.className = 'form-status error';
       }
     } catch (err) {
-      console.warn('Backend server connection error, showing fallback feedback:', err);
-      formStatus.textContent = '🔥 3-Day Free Trial Pass Request Received! Our team will contact you shortly.';
-      formStatus.className = 'form-status success';
-      contactForm.reset();
+      console.error('Backend server connection error:', err);
+      formStatus.textContent = '❌ Unable to submit enquiry. Please check your connection and try again.';
+      formStatus.className = 'form-status error';
     } finally {
       submitBtn.disabled = false;
     }

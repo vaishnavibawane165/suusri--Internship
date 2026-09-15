@@ -76,7 +76,7 @@ window.addEventListener('click', (e) => {
   }
 });
 
-const API_BASE_URL = 'http://localhost:5000' 
+const API_BASE_URL = '';
 
 /* Appointment Form Handling & Backend API Integration */
 async function handleAppointmentSubmit(e) {
@@ -114,8 +114,8 @@ async function handleAppointmentSubmit(e) {
       alert(`⚠️ ${result.message || 'Unable to book appointment.'}`);
     }
   } catch (err) {
-    console.warn('Backend server connection error, showing fallback feedback:', err);
-    alert(`Thank you, ${name}! Your appointment request for ${dept} on ${date} has been received. Our team will contact you at ${phone} to confirm.`);
+    console.error('Backend server connection error:', err);
+    alert('❌ Unable to book appointment. Please check your connection and try again.');
   } finally {
     document.getElementById('appointmentForm').reset();
     closeAppointmentModal();
@@ -162,10 +162,9 @@ function initContactForm() {
         formStatus.className = 'form-status error';
       }
     } catch (err) {
-      console.warn('Backend server connection error, showing fallback feedback:', err);
-      formStatus.textContent = '✅ Message received! Thank you for contacting HealthBridge Hospital.';
-      formStatus.className = 'form-status success';
-      contactForm.reset();
+      console.error('Backend server connection error:', err);
+      formStatus.textContent = '❌ Unable to send message. Please check your connection and try again.';
+      formStatus.className = 'form-status error';
     } finally {
       submitBtn.disabled = false;
     }

@@ -75,7 +75,7 @@ function initContactForm() {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -90,9 +90,9 @@ function initContactForm() {
         status.style.color = '#dc2626';
       }
     } catch (err) {
-      status.textContent = '✅ Enquiry Received! Our admission counselor will call you shortly.';
-      status.style.color = '#16a34a';
-      form.reset();
+      console.error('Backend server connection error:', err);
+      status.textContent = '❌ Unable to submit enquiry. Please check your connection and try again.';
+      status.style.color = '#dc2626';
     } finally {
       btn.disabled = false;
     }

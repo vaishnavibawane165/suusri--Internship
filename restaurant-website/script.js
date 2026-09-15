@@ -69,7 +69,7 @@ async function handleReservationSubmit(e) {
   };
 
   try {
-    const res = await fetch('http://localhost:5000/api/reservation', {
+    const res = await fetch('/api/reservation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -90,14 +90,13 @@ async function handleReservationSubmit(e) {
       }
     }
   } catch (err) {
-    console.warn('Backend connection notice:', err);
+    console.error('Backend connection error:', err);
     if (resStatus) {
-      resStatus.textContent = '🍷 Table Reserved! Thank you for booking with Aura Bistro.';
-      resStatus.className = 'form-status success';
+      resStatus.textContent = '❌ Unable to reserve table. Please check your connection and try again.';
+      resStatus.className = 'form-status error';
     } else {
-      alert(`🍷 Table Reserved!\nThank you ${payload.name}. Your table for ${payload.guests} guests on ${payload.date} at ${payload.time} is reserved.`);
+      alert('❌ Unable to reserve table. Please check your connection and try again.');
     }
-    document.getElementById('reservationForm').reset();
   } finally {
     if (btn) btn.disabled = false;
   }
@@ -117,7 +116,7 @@ async function handleModalReservationSubmit(e) {
   };
 
   try {
-    const res = await fetch('http://localhost:5000/api/reservation', {
+    const res = await fetch('/api/reservation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -129,7 +128,8 @@ async function handleModalReservationSubmit(e) {
       alert(`⚠️ ${data.message || 'Reservation failed.'}`);
     }
   } catch (err) {
-    alert(`🍷 Table Reserved!\nThank you ${payload.name}. Your table for ${payload.guests} guests on ${payload.date} at ${payload.time} is reserved.`);
+    console.error('Backend connection error:', err);
+    alert('❌ Unable to reserve table. Please check your connection and try again.');
   } finally {
     document.getElementById('modalResForm').reset();
     closeReservationModal();

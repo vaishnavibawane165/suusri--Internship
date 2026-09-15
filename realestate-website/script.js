@@ -57,7 +57,7 @@ function initContactForm() {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -72,9 +72,9 @@ function initContactForm() {
         status.style.color = '#f87171';
       }
     } catch (err) {
-      status.textContent = '✅ Inquiry Received! Our property consultant will contact you shortly.';
-      status.style.color = '#34d399';
-      form.reset();
+      console.error('Backend server connection error:', err);
+      status.textContent = '❌ Unable to submit inquiry. Please check your connection and try again.';
+      status.style.color = '#f87171';
     } finally {
       btn.disabled = false;
     }
