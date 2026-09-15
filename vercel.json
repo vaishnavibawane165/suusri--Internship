@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "healthcare-website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "gym-website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "education-website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "restaurant-website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "realestate-website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/healthcare/(.*)",
+      "dest": "/healthcare-website/$1"
+    },
+    {
+      "src": "/gym/(.*)",
+      "dest": "/gym-website/$1"
+    },
+    {
+      "src": "/education/(.*)",
+      "dest": "/education-website/$1"
+    },
+    {
+      "src": "/restaurant/(.*)",
+      "dest": "/restaurant-website/$1"
+    },
+    {
+      "src": "/realestate/(.*)",
+      "dest": "/realestate-website/$1"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/frontend/dashboard.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/frontend/login.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/healthcare-website/$1"
+    }
+  ]
+}

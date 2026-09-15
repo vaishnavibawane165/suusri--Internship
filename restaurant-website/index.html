@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Fine Dining & Bistro | Artisanal Culinary Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🍷 <strong>CHEF'S SPECIAL TASTING MENU:</strong> Reserve your candle-light dining table & get 20% off on weekend reservations!</span>
+    <button class="announcement-btn" onclick="openReservationModal()">Reserve Table →</button>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🍽️</span> AURA <span class="logo-accent">BISTRO</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-item active">Home</a></li>
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#specials" class="nav-item">Specials</a></li>
+        <li><a href="#menu" class="nav-item">Menu</a></li>
+        <li><a href="#gallery" class="nav-item">Gallery</a></li>
+        <li><a href="#reviews" class="nav-item">Reviews</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-gold header-cta" onclick="openReservationModal()">Book a Table</button>
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-subtitle">✨ AN UNFORGETTABLE GASTRONOMIC JOURNEY</span>
+        <h1>EXQUISITE FLAVORS,<br><span class="gold-text">ELEGANT AMBIANCE</span></h1>
+        <p>Experience artisanal fine dining, wood-fired delicacies, and handcrafted mocktails curated by Michelin-trained master chefs.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn-gold btn-lg">Explore Our Menu</a>
+          <button class="btn-glass btn-lg" onclick="openReservationModal()">Book a Table</button>
+        </div>
+        <div class="hero-badges">
+          <div class="h-badge">⭐ 4.9/5 Guest Rating</div>
+          <div class="h-badge">🍷 50+ Fine Drinks</div>
+          <div class="h-badge">👨‍🍳 Michelin Trained Chefs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-col">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&auto=format&fit=crop" alt="Restaurant Ambiance" class="about-img">
+          <div class="award-card">
+            <span class="award-year">2025</span>
+            <span class="award-title">Best Fine Dining Restaurant in Bhubaneswar</span>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <span class="section-subtitle">OUR STORY</span>
+          <h2 class="section-title">Where Passion Meets Culinary Perfection</h2>
+          <p class="lead-p">At Aura Bistro, we believe dining is an art form. Founded in 2018, our kitchen brings together farm-fresh organic ingredients, authentic herbs, and modern plate presentation.</p>
+          <p>Whether it's a romantic candle-light dinner, corporate lunch, or private family celebration, our warm ambient lighting and plush seating offer an unmatched atmosphere.</p>
+          <div class="about-features">
+            <div class="a-feat-item">
+              <span class="a-feat-icon">🌱</span>
+              <div>
+                <h4>Farm-Fresh Organic Produce</h4>
+                <p>Locally sourced vegetables, herbs, and premium meats.</p>
+              </div>
+            </div>
+            <div class="a-feat-item">
+              <span class="a-feat-icon">🔥</span>
+              <div>
+                <h4>Wood-Fired Brick Oven</h4>
+                <p>Authentic Neapolitan pizzas and slow-roasted steaks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Dishes Section -->
+  <section class="section specials-section" id="specials">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">CHEF'S SELECTION</span>
+        <h2 class="section-title">Signature Special Dishes</h2>
+        <p class="section-desc">Handcrafted creations loved by our regular guests.</p>
+      </div>
+
+      <div class="specials-grid">
+        <div class="special-card">
+          <div class="special-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop" alt="Smoked Ribeye Steak">
+            <span class="dish-tag">Chef's Special</span>
+          </div>
+          <div class="special-body">
+            <h3>Smoked Herb Ribeye Steak</h3>
+            <p>Wood-charred premium ribeye served with garlic jus, truffle potato mash, and grilled asparagus spears.</p>
+            <div class="special-footer">
+              <span class="dish-price">₹1,250</span>
+              <button class="btn-gold-sm" onclick="openReservationModal()">Reserve Table</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="special-card">
+          <div class="special-img-wrap">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop" alt="Saffron Risotto">
+            <span class="dish-tag">Must Try</span>
+          </div>
+          <div class="special-body">
+            <h3>Kashmiri Saffron & Porcini Risotto</h3>
+            <p>Slow-simmered Arborio rice infused with Kashmiri saffron, aged parmesan, and butter-seared wild mushrooms.</p>
+            <div class="special-footer">
+              <span class="dish-price">₹850</span>
+              <button class="btn-gold-sm" onclick="openReservationModal()">Reserve Table</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="special-card">
+          <div class="special-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&auto=format&fit=crop" alt="Chocolate Lava">
+            <span class="dish-tag">Dessert Special</span>
+          </div>
+          <div class="special-body">
+            <h3>Belgian Chocolate Lava Sensation</h3>
+            <p>Warm molten dark Belgian chocolate cake served with artisanal Madagascar vanilla bean gelato and berry compote.</p>
+            <div class="special-footer">
+              <span class="dish-price">₹420</span>
+              <button class="btn-gold-sm" onclick="openReservationModal()">Reserve Table</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section with Category Filter -->
+  <section class="section menu-section" id="menu">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">CURATED MENU</span>
+        <h2 class="section-title">Explore Chef's A La Carte Menu</h2>
+        <p class="section-desc">Filtered by category to tantalize your tastebuds.</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="filterMenu('all', this)">All Delicacies</button>
+        <button class="tab-btn" onclick="filterMenu('starters', this)">Starters</button>
+        <button class="tab-btn" onclick="filterMenu('mains', this)">Main Course</button>
+        <button class="tab-btn" onclick="filterMenu('desserts', this)">Desserts</button>
+        <button class="tab-btn" onclick="filterMenu('drinks', this)">Beverages</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <div class="menu-card" data-category="starters">
+          <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=500&auto=format&fit=crop" alt="Truffle Bruschetta">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Truffle & Mushroom Bruschetta</h3>
+              <span class="m-price">₹450</span>
+            </div>
+            <p>Grilled sourdough topped with wild truffles, creamy ricotta, and fresh basil drizzle.</p>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="starters">
+          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&auto=format&fit=crop" alt="Paneer Tikka">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Charcoal Smoky Paneer Tikka</h3>
+              <span class="m-price">₹380</span>
+            </div>
+            <p>Marinated cottage cheese cubes chargrilled in traditional clay tandoor with mint chutney.</p>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop" alt="Smoked Ribeye Steak">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Smoked Herb Ribeye Steak</h3>
+              <span class="m-price">₹1,250</span>
+            </div>
+            <p>Wood-charred ribeye served with roasted garlic jus, truffle mash, and charred asparagus.</p>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="mains">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&auto=format&fit=crop" alt="Saffron Risotto">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Saffron & Wild Mushroom Risotto</h3>
+              <span class="m-price">₹850</span>
+            </div>
+            <p>Arborio rice slow-cooked with Kashmiri saffron, aged parmesan, and butter-poached porcini.</p>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="desserts">
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop" alt="Molten Chocolate Lava">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Belgian Chocolate Lava Cake</h3>
+              <span class="m-price">₹420</span>
+            </div>
+            <p>Warm molten dark Belgian chocolate cake served with artisanal Madagascar vanilla bean gelato.</p>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="drinks">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop" alt="Artisanal Mocktail">
+          <div class="m-info">
+            <div class="m-header">
+              <h3>Smoked Berry Passion Mocktail</h3>
+              <span class="m-price">₹290</span>
+            </div>
+            <p>Fresh wild berries, passion fruit nectar, sparkling tonic, and rosemary smoke infusion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">VISUAL EXPERIENCE</span>
+        <h2 class="section-title">Atmosphere & Dining Space</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop" alt="Dining Hall">
+          <span class="g-caption">Main Dining Hall</span>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=600&auto=format&fit=crop" alt="Chef Plating">
+          <span class="g-caption">Master Chef Plating</span>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&auto=format&fit=crop" alt="Cocktail Lounge">
+          <span class="g-caption">Mixology Bar & Lounge</span>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&auto=format&fit=crop" alt="Outdoor Terrace">
+          <span class="g-caption">Rooftop Garden Dining</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest Reviews Section -->
+  <section class="section reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">GUEST FEEDBACK</span>
+        <h2 class="section-title">What Our Diners Say</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="r-text">"The Saffron Risotto and Ribeye Steak were out of this world. Best fine dining experience in Bhubaneswar!"</p>
+          <div class="r-user">
+            <h4>Ananya Mohanty</h4>
+            <span>Food Critic & Blogger</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="r-text">"Booked a candle-light dinner for our 5th anniversary. The staff went above and beyond with private booth setup."</p>
+          <div class="r-user">
+            <h4>Soumya & Ritu</h4>
+            <span>Bhubaneswar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Reservation -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="c-info">
+          <span class="section-subtitle">VISIT US</span>
+          <h2 class="section-title">Location & Hours</h2>
+          <div class="c-box">
+            <p>📍 <strong>Address:</strong> Plot 45, Kiit Road, Patia, Bhubaneswar, Odisha 751024</p>
+            <p>📞 <strong>Reservation Helpline:</strong> +91 80182 26416 / 0674-290011</p>
+            <p>🕒 <strong>Lunch:</strong> 12:00 PM – 3:30 PM</p>
+            <p>🕒 <strong>Dinner:</strong> 7:00 PM – 11:30 PM</p>
+            <p>🚗 <strong>Valet Parking:</strong> Complimentary Valet Service Available</p>
+          </div>
+        </div>
+
+        <div class="c-form-wrap">
+          <div class="form-card">
+            <h3>Reserve Your Dining Table</h3>
+            <p>Book online for instant seating confirmation.</p>
+            <form id="reservationForm" onsubmit="handleReservationSubmit(event)">
+              <div class="form-group">
+                <input type="text" id="resName" placeholder="Your Name *" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="email" id="resEmail" placeholder="Email *" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="resPhone" placeholder="Phone *" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="number" id="resGuests" placeholder="Guests (e.g. 2)" min="1" max="20" required>
+                </div>
+                <div class="form-group">
+                  <input type="date" id="resDate" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="time" id="resTime" required>
+              </div>
+              <button type="submit" class="btn-gold w-100" id="resSubmitBtn">Confirm Table Reservation</button>
+              <div class="form-status" id="resStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p>&copy; 2026 Aura Fine Dining & Bistro. All rights reserved. | Built for SuuSri AI Task Assignment</p>
+    </div>
+  </footer>
+
+  <!-- Table Reservation Modal -->
+  <div class="modal-overlay" id="reservationModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeReservationModal()">&times;</button>
+      <h3>Reserve Your Table at Aura</h3>
+      <p>Fill out the form to reserve your table instantly.</p>
+      <form id="modalResForm" onsubmit="handleModalReservationSubmit(event)">
+        <div class="form-group">
+          <input type="text" id="mResName" placeholder="Full Name *" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="email" id="mResEmail" placeholder="Email *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="mResPhone" placeholder="Phone *" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="number" id="mResGuests" placeholder="Guests *" min="1" max="20" required>
+          </div>
+          <div class="form-group">
+            <input type="date" id="mResDate" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="time" id="mResTime" required>
+        </div>
+        <button type="submit" class="btn-gold w-100">Confirm Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <a href="https://wa.me/918018226416" class="whatsapp-float" target="_blank" aria-label="WhatsApp">🍷</a>
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

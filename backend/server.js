@@ -1,41 +1,139 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB se connect
-mongoose.connect('mongodb://127.0.0.1:27017/taskmanager')
+mongoose.connect('mongodb://127.0.0.1:27017/suusri_websites')
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('Connection error:', err));
 
-// Task ka structure define karo
-const taskSchema = new mongoose.Schema({
-  title: String,
-  completed: { type: Boolean, default: false }
+const contactSchema = new mongoose.Schema({
+  industry: String,
+  name: String,
+  email: String,
+  message: String,
+  createdAt: { type: Date, default: Date.now }
 });
 
-const Task = mongoose.model('Task', taskSchema);
+const Contact = mongoose.model('Contact', contactSchema);
 
-// GET - saare tasks laao
-app.get('/tasks', async (req, res) => {
-  const tasks = await Task.find();
-  res.json(tasks);
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
 });
 
-// POST - naya task banao
-app.post('/tasks', async (req, res) => {
-  const newTask = new Task({ title: req.body.title });
-  await newTask.save();
-  res.json(newTask);
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { industry, name, email, message } = req.body;
+
+    if (!industry || !name || !email || !message) {
+      return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
+
+    if (name.trim().length < 2 || name.trim().length > 50) {
+      return res.status(400).json({ success: false, message: 'Name must be between 2 and 50 characters.' });
+    }
+
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ success: false, message: 'Please enter a valid email address.' });
+    }
+
+    if (message.trim().length < 10 || message.trim().length > 500) {
+      return res.status(400).json({ success: false, message: 'Message must be between 10 and 500 characters.' });
+    }
+
+    const newContact = new Contact({ industry, name, email, message });
+    await newContact.save();
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.COMPANY_EMAIL,
+      subject: `New Enquiry from ${industry} website`,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Industry:</strong> ${industry}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `
+    });
+
+    res.status(201).json({ success: true, message: 'Thank you! We will contact you soon.' });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Something went wrong. Please try again later.' });
+  }
+});
+const reservationSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  phone: String,
+  guests: Number,
+  date: String,
+  time: String,
+  createdAt: { type: Date, default: Date.now }
 });
 
-// DELETE - task hatao
-app.delete('/tasks/:id', async (req, res) => {
-  await Task.findByIdAndDelete(req.params.id);
-  res.json({ message: 'Task deleted' });
+const Reservation = mongoose.model('Reservation', reservationSchema);
+
+app.post('/api/reservation', async (req, res) => {
+  try {
+    const { name, email, phone, guests, date, time } = req.body;
+
+    if (!name || !email || !phone || !guests || !date || !time) {
+      return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
+
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ success: false, message: 'Please enter a valid email address.' });
+    }
+
+    const newReservation = new Reservation({ name, email, phone, guests, date, time });
+    await newReservation.save();
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.COMPANY_EMAIL,
+      subject: `New Table Reservation Request`,
+      html: `
+        <h3>New Restaurant Reservation</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Guests:</strong> ${guests}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Time:</strong> ${time}</p>
+      `
+    });
+
+    res.status(201).json({ success: true, message: 'Your table has been reserved! A confirmation email has been sent.' });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Something went wrong. Please try again later.' });
+  }
+});
+app.get('/api/contact', async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+    res.status(200).json(contacts);
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Error fetching data.' });
+  }
 });
 
 const PORT = 5000;
