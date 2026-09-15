@@ -3,209 +3,647 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerFit Gym</title>
+  <title>POWERFIT GYM | Premium Fitness & Performance Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="scroll-progress"></div>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-  <nav class="navbar">
-    <div class="logo">POWER<span>FIT</span></div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#trainers">Trainers</a></li>
-      <li><a href="#membership">Membership</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-  </nav>
-
-  <section class="hero" id="home">
-    <h1>Transform Your Body,<br>Transform Your Life</h1>
-    <p>Join PowerFit and start your fitness journey today</p>
-    <button class="cta-btn">Start Your Fitness Journey</button>
-    <div class="hero-stats">
-      <div><span class="counter" data-target="500">0</span>+ Members</div>
-      <div><span class="counter" data-target="10">0</span>+ Trainers</div>
-      <div><span class="counter" data-target="5">0</span>+ Years</div>
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>PowerFit is a state-of-the-art fitness center dedicated to helping you achieve your health goals through expert training, modern equipment, and a supportive community.</p>
-  </section>
-
-  <section class="programs" id="programs">
-    <h2>Our Programs</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Weight Training</h3>
-        <p>Build strength with our expert-guided weight training programs.</p>
-      </div>
-      <div class="card">
-        <h3>Yoga</h3>
-        <p>Improve flexibility and mental peace with daily yoga sessions.</p>
-      </div>
-      <div class="card">
-        <h3>Cardio</h3>
-        <p>Boost your stamina and burn calories with high-energy cardio classes.</p>
-      </div>
-      <div class="card">
-        <h3>Zumba</h3>
-        <p>Dance your way to fitness with fun, high-energy Zumba classes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="trainers" id="trainers">
-    <h2>Our Trainers</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>John Smith</h3>
-        <p>Strength & Conditioning Expert</p>
-      </div>
-      <div class="card">
-        <h3>Sarah Lee</h3>
-        <p>Yoga Instructor</p>
-      </div>
-      <div class="card">
-        <h3>Mike Ross</h3>
-        <p>Cardio Specialist</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="membership" id="membership">
-    <h2>Membership Plans</h2>
-    <div class="pricing-toggle">
-      <span>Monthly</span>
-      <label class="switch">
-        <input type="checkbox" id="pricingSwitch" onchange="togglePricing()">
-        <span class="slider"></span>
-      </label>
-      <span>Yearly (Save 20%)</span>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Basic</h3>
-        <p class="price">₹999/mo</p>
-        <p>Gym access, locker room</p>
-      </div>
-      <div class="card">
-        <h3>Standard</h3>
-        <p class="price">₹1999/mo</p>
-        <p>Gym access, group classes, locker room</p>
-      </div>
-      <div class="card">
-        <h3>Premium</h3>
-        <p class="price">₹2999/mo</p>
-        <p>All access, personal trainer, nutrition plan</p>
-      </div>
-    </div>
-  </section>
-
- <section class="facilities">
-  <h2>Facilities</h2>
-  <div class="card-grid">
-    <div class="card">
-      <div class="facility-icon">🏋️</div>
-      <h3>Modern Equipment</h3>
-    </div>
-    <div class="card">
-      <div class="facility-icon">🚿</div>
-      <h3>Locker Rooms</h3>
-    </div>
-    <div class="card">
-      <div class="facility-icon">🚗</div>
-      <h3>Free Parking</h3>
-    </div>
-    <div class="card">
-      <div class="facility-icon">♨️</div>
-      <h3>Steam Room</h3>
-    </div>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🔥 <strong>SPECIAL OFFER:</strong> Join PowerFit Today & Get a 3-Day Free Trial Pass + Free Personal Training Consultation!</span>
+    <a href="#membership" class="announcement-link">Claim Offer →</a>
   </div>
-</section>
 
-  <section class="testimonials">
-    <h2>What Our Members Say</h2>
-    <div class="card-grid">
-      <div class="card">
-  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Kumar" class="testimonial-img">
-  <div class="stars">⭐⭐⭐⭐⭐</div>
-  <p>"PowerFit changed my life. Lost 15kg in 6 months!"</p>
-  <p><strong>- Amit Kumar</strong></p>
-</div>
-<div class="card">
-  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="testimonial-img">
-  <div class="stars">⭐⭐⭐⭐⭐</div>
-  <p>"Best trainers and amazing community support."</p>
-  <p><strong>- Priya Sharma</strong></p>
-</div>
-  </section>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        POWER<span class="logo-accent">FIT</span> <span class="logo-tag">GYM</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-item active">Home</a></li>
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#programs" class="nav-item">Programs</a></li>
+        <li><a href="#schedule" class="nav-item">Schedule</a></li>
+        <li><a href="#trainers" class="nav-item">Trainers</a></li>
+        <li><a href="#membership" class="nav-item">Pricing</a></li>
+        <li><a href="#bmi" class="nav-item">BMI Calculator</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#membership" class="btn-neon header-cta">Join Now</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-  <section class="schedule">
-    <h2>Class Schedule</h2>
-    <table>
-      <tr><th>Day</th><th>Morning</th><th>Evening</th></tr>
-      <tr><td>Monday</td><td>Yoga - 7AM</td><td>Zumba - 6PM</td></tr>
-      <tr><td>Wednesday</td><td>Cardio - 7AM</td><td>Weight Training - 6PM</td></tr>
-      <tr><td>Friday</td><td>Yoga - 7AM</td><td>Zumba - 6PM</td></tr>
-    </table>
-  </section>
-
-  <section class="bmi-calculator">
-    <h2>Calculate Your BMI</h2>
-    <div class="bmi-box">
-      <input type="number" id="height" placeholder="Height (cm)">
-      <input type="number" id="weight" placeholder="Weight (kg)">
-      <button onclick="calculateBMI()">Calculate</button>
-      <p id="bmiResult"></p>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-tag">⚡ NO EXCUSES. ONLY RESULTS.</span>
+        <h1>TRANSFORM YOUR BODY,<br><span class="highlight-text">TRANSFORM YOUR LIFE</span></h1>
+        <p>Unleash your potential with state-of-the-art heavy iron, elite personal trainers, explosive group HIIT classes, and a passionate fitness community.</p>
+        <div class="hero-actions">
+          <a href="#membership" class="btn-neon btn-lg">Start Your Fitness Journey</a>
+          <a href="#programs" class="btn-glass btn-lg">Explore Programs</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="850">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Active Members</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="14">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Certified Coaches</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="10">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Years of Power</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFAQ(this)">What are your gym timings? <span>+</span></div>
-      <div class="faq-answer">We are open from 6AM to 10PM, all days of the week.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFAQ(this)">Do you offer personal training? <span>+</span></div>
-      <div class="faq-answer">Yes, our Premium plan includes personal training sessions.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFAQ(this)">Is there a trial period? <span>+</span></div>
-      <div class="faq-answer">Yes, we offer a 3-day free trial for new members.</div>
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop" alt="PowerFit Gym Interior" class="about-img">
+          <div class="about-badge">
+            <span class="badge-big">12,000</span>
+            <span class="badge-sub">SQ. FT. ULTRA GYM FACILITY</span>
+          </div>
+        </div>
+        <div class="about-info">
+          <span class="section-subtitle">WHO WE ARE</span>
+          <h2 class="section-title">BHUBANESWAR'S PREMIER FITNESS SANCTUARY</h2>
+          <p class="about-lead">PowerFit Gym isn't just a place to sweat — it's a high-performance training ground designed for warriors, athletes, and beginners alike.</p>
+          <p>We combine Olympic-grade lifting platforms, cardio decks, dedicated functional turf areas, and bio-mechanical strength gear to give you the ultimate workout environment.</p>
+          <div class="about-highlights">
+            <div class="h-box">
+              <span class="h-icon">🏋️‍♂️</span>
+              <div>
+                <h4>Hammer Strength & Eleiko Gear</h4>
+                <p>Top-tier free weights, dumbbells up to 60kg, and power racks.</p>
+              </div>
+            </div>
+            <div class="h-box">
+              <span class="h-icon">🔥</span>
+              <div>
+                <h4>Customized Nutrition & Training</h4>
+                <p>Personalized macro plans and weekly body composition scans.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Programs Section -->
+  <section class="section programs-section" id="programs">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">OUR PROGRAMS</span>
+        <h2 class="section-title">ENGINEERED FOR MAXIMUM RESULTS</h2>
+        <p class="section-desc">From hypertrophy to explosive cardio endurance, choose a discipline designed to smash your goals.</p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="prog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format&fit=crop" alt="Weight Training">
+            <span class="prog-level">All Levels</span>
+          </div>
+          <div class="prog-body">
+            <h3>Hypertrophy & Heavy Lifting</h3>
+            <p>Master the fundamental compound lifts (Squat, Bench, Deadlift) to build raw power and solid muscular physique.</p>
+            <div class="prog-meta">
+              <span>⏱️ 60 Min</span>
+              <span>🔥 600 Cal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="prog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&auto=format&fit=crop" alt="Zumba & HIIT">
+            <span class="prog-level intense">High Intensity</span>
+          </div>
+          <div class="prog-body">
+            <h3>HIIT & Zumba Burn</h3>
+            <p>Fast-paced cardiovascular conditioning mixed with high-tempo dance routines to maximize calorie burn and endurance.</p>
+            <div class="prog-meta">
+              <span>⏱️ 45 Min</span>
+              <span>🔥 750 Cal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="prog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&auto=format&fit=crop" alt="Yoga & Mobility">
+            <span class="prog-level">Recovery</span>
+          </div>
+          <div class="prog-body">
+            <h3>Power Yoga & Mobility</h3>
+            <p>Enhance core stability, joint mobility, posture alignment, and mental focus through dynamic yogic flows.</p>
+            <div class="prog-meta">
+              <span>⏱️ 50 Min</span>
+              <span>🔥 350 Cal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="prog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=600&auto=format&fit=crop" alt="Boxing & Kickboxing">
+            <span class="prog-level intense">High Intensity</span>
+          </div>
+          <div class="prog-body">
+            <h3>Boxing & Combat Fitness</h3>
+            <p>Learn heavy bag drills, pad work, footwork, and aggressive conditioning routines to shred fat and boost reflexes.</p>
+            <div class="prog-meta">
+              <span>⏱️ 60 Min</span>
+              <span>🔥 800 Cal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2026 PowerFit Gym. All rights reserved.</p>
+  <!-- Interactive Class Schedule Section -->
+  <section class="section schedule-section" id="schedule">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">WEEKLY TIMETABLE</span>
+        <h2 class="section-title">INTERACTIVE CLASS SCHEDULE</h2>
+        <p class="section-desc">Select a day of the week to view scheduled training sessions and book your spot.</p>
+      </div>
+
+      <!-- Schedule Day Tabs -->
+      <div class="schedule-tabs">
+        <button class="day-tab active" onclick="switchDay('mon', this)">Monday</button>
+        <button class="day-tab" onclick="switchDay('tue', this)">Tuesday</button>
+        <button class="day-tab" onclick="switchDay('wed', this)">Wednesday</button>
+        <button class="day-tab" onclick="switchDay('thu', this)">Thursday</button>
+        <button class="day-tab" onclick="switchDay('fri', this)">Friday</button>
+        <button class="day-tab" onclick="switchDay('sat', this)">Saturday</button>
+      </div>
+
+      <!-- Schedule Table / Content -->
+      <div class="schedule-content">
+        <div class="schedule-day-panel active" id="day-mon">
+          <div class="schedule-row">
+            <div class="s-time">06:30 AM - 07:30 AM</div>
+            <div class="s-class">
+              <h4>Morning Power Yoga</h4>
+              <span>Trainer: Sarah Lee</span>
+            </div>
+            <div class="s-badge">Studio A</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+          <div class="schedule-row">
+            <div class="s-time">08:00 AM - 09:00 AM</div>
+            <div class="s-class">
+              <h4>Strength & Powerlifting 101</h4>
+              <span>Trainer: John Smith</span>
+            </div>
+            <div class="s-badge intense">Heavy Iron Zone</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+          <div class="schedule-row">
+            <div class="s-time">06:00 PM - 07:00 PM</div>
+            <div class="s-class">
+              <h4>High-Energy Zumba Party</h4>
+              <span>Trainer: Mike Ross</span>
+            </div>
+            <div class="s-badge">Main Arena</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+
+        <div class="schedule-day-panel" id="day-tue">
+          <div class="schedule-row">
+            <div class="s-time">07:00 AM - 08:00 AM</div>
+            <div class="s-class">
+              <h4>Fat Burner HIIT Circuit</h4>
+              <span>Trainer: Mike Ross</span>
+            </div>
+            <div class="s-badge intense">Turf Zone</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+          <div class="schedule-row">
+            <div class="s-time">05:30 PM - 06:30 PM</div>
+            <div class="s-class">
+              <h4>Boxing & Heavy Bag Conditioning</h4>
+              <span>Trainer: Vikram Singh</span>
+            </div>
+            <div class="s-badge intense">Ring Area</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+
+        <div class="schedule-day-panel" id="day-wed">
+          <div class="schedule-row">
+            <div class="s-time">06:30 AM - 07:30 AM</div>
+            <div class="s-class">
+              <h4>Core Mobility & Flow</h4>
+              <span>Trainer: Sarah Lee</span>
+            </div>
+            <div class="s-badge">Studio A</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+          <div class="schedule-row">
+            <div class="s-time">07:00 PM - 08:00 PM</div>
+            <div class="s-class">
+              <h4>Hypertrophy Chest & Arms</h4>
+              <span>Trainer: John Smith</span>
+            </div>
+            <div class="s-badge">Free Weights</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+
+        <div class="schedule-day-panel" id="day-thu">
+          <div class="schedule-row">
+            <div class="s-time">07:30 AM - 08:30 AM</div>
+            <div class="s-class">
+              <h4>CrossFit & Functional Fitness</h4>
+              <span>Trainer: Vikram Singh</span>
+            </div>
+            <div class="s-badge intense">Rig Zone</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+
+        <div class="schedule-day-panel" id="day-fri">
+          <div class="schedule-row">
+            <div class="s-time">06:00 PM - 07:00 PM</div>
+            <div class="s-class">
+              <h4>Full Body Beast Workout</h4>
+              <span>Trainer: John Smith</span>
+            </div>
+            <div class="s-badge intense">Main Arena</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+
+        <div class="schedule-day-panel" id="day-sat">
+          <div class="schedule-row">
+            <div class="s-time">08:00 AM - 09:30 AM</div>
+            <div class="s-class">
+              <h4>Weekend Shred Marathon</h4>
+              <span>All Head Coaches</span>
+            </div>
+            <div class="s-badge intense">Full Facility</div>
+            <a href="#contact" class="btn-sm btn-outline-neon">Book Slot</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Section -->
+  <section class="section trainers-section" id="trainers">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">THE COACHES</span>
+        <h2 class="section-title">MEET OUR ELITE TRAINERS</h2>
+        <p class="section-desc">Certified strength coaches and fitness specialists dedicated to pushing you beyond your limits.</p>
+      </div>
+
+      <div class="trainers-grid">
+        <div class="trainer-card">
+          <div class="t-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&auto=format&fit=crop" alt="John Smith">
+            <div class="t-socials">
+              <span>💪 NSCA Certified</span>
+            </div>
+          </div>
+          <div class="t-info">
+            <span class="t-spec">Head Coach</span>
+            <h3>John Smith</h3>
+            <p>Bodybuilding & Strength Specialist with 10+ years experience coaching national powerlifters.</p>
+          </div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="t-img-wrap">
+            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=500&auto=format&fit=crop" alt="Sarah Lee">
+            <div class="t-socials">
+              <span>🧘 500-Hr RYT Yoga</span>
+            </div>
+          </div>
+          <div class="t-info">
+            <span class="t-spec">Mind & Body Lead</span>
+            <h3>Sarah Lee</h3>
+            <p>Specializes in posture alignment, power yoga, core stabilization, and athletic mobility recovery.</p>
+          </div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="t-img-wrap">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&auto=format&fit=crop" alt="Mike Ross">
+            <div class="t-socials">
+              <span>🔥 ACE Certified</span>
+            </div>
+          </div>
+          <div class="t-info">
+            <span class="t-spec">HIIT & Cardio Expert</span>
+            <h3>Mike Ross</h3>
+            <p>High-energy cardio specialist known for intense metabolic group training and fat loss transformations.</p>
+          </div>
+        </div>
+
+        <div class="trainer-card">
+          <div class="t-img-wrap">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&auto=format&fit=crop" alt="Vikram Singh">
+            <div class="t-socials">
+              <span>🥊 Pro Combat Coach</span>
+            </div>
+          </div>
+          <div class="t-info">
+            <span class="t-spec">Combat & Conditioning</span>
+            <h3>Vikram Singh</h3>
+            <p>Former national kickboxing champion focused on strike technique, footwork, and tactical endurance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Membership & Pricing Section -->
+  <section class="section membership-section" id="membership">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">MEMBERSHIP PLANS</span>
+        <h2 class="section-title">INVEST IN YOUR HEALTH</h2>
+        <p class="section-desc">Transparent pricing with no hidden lock-in contracts. Choose monthly flexibility or save 20% on annual passes.</p>
+      </div>
+
+      <!-- Pricing Switch Toggle -->
+      <div class="pricing-toggle-wrap">
+        <span class="toggle-label" id="monthlyLabel">Monthly Billing</span>
+        <label class="switch">
+          <input type="checkbox" id="pricingSwitch" onchange="togglePricing()">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label" id="annualLabel">Annual Billing <span class="discount-badge">SAVE 20%</span></span>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="p-header">
+            <h3>BASIC PASS</h3>
+            <p>Ideal for self-guided lifters & gym enthusiasts</p>
+            <div class="p-price"><span class="currency">₹</span><span class="price-val" data-monthly="999" data-annual="799">999</span><span class="period">/mo</span></div>
+          </div>
+          <ul class="p-features">
+            <li>⚡ Full access to Gym Floor & Weights</li>
+            <li>⚡ Locker Room & Shower Access</li>
+            <li>⚡ Free Wi-Fi & Hydration Bar</li>
+            <li>❌ Group Fitness Classes</li>
+            <li>❌ Personal Trainer Sessions</li>
+          </ul>
+          <a href="#contact" class="btn-outline-neon w-100">Get Started</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="best-value">MOST POPULAR</div>
+          <div class="p-header">
+            <h3>PRO PERFORMANCE</h3>
+            <p>Complete access including all group classes</p>
+            <div class="p-price"><span class="currency">₹</span><span class="price-val" data-monthly="1999" data-annual="1599">1999</span><span class="period">/mo</span></div>
+          </div>
+          <ul class="p-features">
+            <li>⚡ All Basic Pass Benefits</li>
+            <li>⚡ Unlimited Group Classes (Zumba, Yoga, HIIT)</li>
+            <li>⚡ Steam Room & Sauna Access</li>
+            <li>⚡ 1 Free InBody Scan per month</li>
+            <li>❌ 1-on-1 Personal Trainer</li>
+          </ul>
+          <a href="#contact" class="btn-neon w-100">Claim Pro Pass</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="p-header">
+            <h3>VIP ELITE</h3>
+            <p>All-inclusive VIP training + personal coach</p>
+            <div class="p-price"><span class="currency">₹</span><span class="price-val" data-monthly="2999" data-annual="2399">2999</span><span class="period">/mo</span></div>
+          </div>
+          <ul class="p-features">
+            <li>⚡ All Pro Performance Benefits</li>
+            <li>⚡ 4 Dedicated Personal Trainer Sessions/Mo</li>
+            <li>⚡ Custom Macro & Diet Meal Blueprint</li>
+            <li>⚡ VIP Locker & Towel Service</li>
+            <li>⚡ Guest Pass (Bring a friend 2x/mo)</li>
+          </ul>
+          <a href="#contact" class="btn-outline-neon w-100">Get VIP Elite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive BMI Calculator Section -->
+  <section class="section bmi-section" id="bmi">
+    <div class="container">
+      <div class="bmi-box">
+        <div class="bmi-header">
+          <span class="section-subtitle">FITNESS TOOL</span>
+          <h2>CALCULATE YOUR BODY MASS INDEX (BMI)</h2>
+          <p>Check your body composition category and discover recommendations for your fitness path.</p>
+        </div>
+
+        <div class="bmi-form">
+          <div class="bmi-input-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="e.g. 175" min="100" max="230">
+          </div>
+          <div class="bmi-input-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="e.g. 70" min="30" max="250">
+          </div>
+          <button class="btn-neon" onclick="calculateBMI()">Calculate BMI</button>
+        </div>
+
+        <div class="bmi-result-card" id="bmiResultCard">
+          <div class="bmi-score" id="bmiScore">--</div>
+          <div class="bmi-status" id="bmiStatus">Enter your height and weight above</div>
+          <p class="bmi-desc" id="bmiDesc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">GOT QUESTIONS?</span>
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h4>What are PowerFit Gym operating hours?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>We are open 7 days a week! Monday to Saturday from 5:30 AM to 10:30 PM, and Sundays from 7:00 AM to 8:00 PM.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h4>Do I get a free trial pass before buying a membership?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>Yes! We offer a 3-Day Free Trial Pass for all new residents in Bhubaneswar, which includes full gym floor access and 1 complimentary trainer consultation.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h4>Are group fitness classes (Yoga, Zumba) included in the basic plan?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>Group classes are included in our PRO Performance and VIP Elite passes. Basic pass holders can upgrade or purchase single-class drop-in passes anytime.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h4>Can I pause or freeze my membership if I travel?</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>Yes, all 6-month and annual membership holders can freeze their pass for up to 30 days per year free of charge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Registration Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="c-info">
+          <span class="section-subtitle">GET IN TOUCH</span>
+          <h2 class="section-title">START YOUR TRANSFORMATIONAL JOURNEY</h2>
+          <p>Have questions about plans, personal training, or facilities? Drop us a message or visit our gym floor today.</p>
+
+          <div class="c-box">
+            <div class="c-item">
+              <span class="icon">📍</span>
+              <div>
+                <h4>Gym Location</h4>
+                <p>2nd Floor, PowerFit Tower, Saheed Nagar, Bhubaneswar, Odisha 751007</p>
+              </div>
+            </div>
+            <div class="c-item">
+              <span class="icon">📞</span>
+              <div>
+                <h4>Hotline / WhatsApp</h4>
+                <p>+91 80182 26416 / +91 90000 11122</p>
+              </div>
+            </div>
+            <div class="c-item">
+              <span class="icon">✉️</span>
+              <div>
+                <h4>Official Email</h4>
+                <p>join@powerfitgym.com / sales@suusri.app</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-form-wrap">
+          <div class="form-card">
+            <h3>CLAIM YOUR FREE TRIAL PASS</h3>
+            <p>Fill out the form below and our head coach will activate your pass.</p>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="contactName" placeholder="Your Name *" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="email" id="contactEmail" placeholder="Email Address *" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="contactPhone" placeholder="Phone Number *" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea id="contactMessage" rows="3" placeholder="Tell us your fitness goal (e.g. Weight Loss, Muscle Gain, Trial Pass)..." required></textarea>
+              </div>
+              <button type="submit" class="btn-neon w-100" id="contactSubmitBtn">Submit & Claim Free Pass</button>
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="f-col">
+        <a href="#home" class="f-logo">POWER<span class="highlight-text">FIT</span> GYM</a>
+        <p>Bhubaneswar's elite fitness and performance sanctuary equipped with top-tier gear and certified coaches.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Gym</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#schedule">Class Timetable</a></li>
+          <li><a href="#membership">Membership Plans</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Gym Hours</h4>
+        <p>Mon - Sat: 5:30 AM - 10:30 PM</p>
+        <p>Sunday: 7:00 AM - 8:00 PM</p>
+        <p class="f-phone">📞 +91 80182 26416</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 PowerFit Gym. All rights reserved. | Built for SuuSri AI Task Assignment</p>
+      </div>
+    </div>
   </footer>
 
-  <a href="https://wa.me/918018226416" class="whatsapp-float" target="_blank">
+  <!-- Floating WhatsApp CTA Widget -->
+  <a href="https://wa.me/918018226416?text=Hello%20PowerFit%20Gym,%20I%20want%20to%20claim%20my%203-Day%20Free%20Trial%20Pass." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
       <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.986-1.175-1.104-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.337-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
     </svg>
   </a>
-  <button id="backToTop" onclick="scrollToTop()">↑</button>
 
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+  <!-- GSAP Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>

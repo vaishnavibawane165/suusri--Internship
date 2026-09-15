@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Academy | Empowering Minds, Building Futures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🎓 <strong>ADMISSIONS OPEN 2026-27:</strong> Apply now & get up to 50% Merit Scholarship on Technology & Business programs!</span>
+    <button class="announcement-btn" onclick="openAdmissionModal()">Apply Now →</button>
+  </div>
+
+  <!-- Header & Navbar -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🎓</span> APEX <span class="logo-accent">ACADEMY</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-item active">Home</a></li>
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#courses" class="nav-item">Courses</a></li>
+        <li><a href="#faculty" class="nav-item">Faculty</a></li>
+        <li><a href="#achievements" class="nav-item">Achievements</a></li>
+        <li><a href="#events" class="nav-item">Events</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-primary header-cta" onclick="openAdmissionModal()">Enquire Now</button>
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">🌟 #1 PREMIER EDUCATION INSTITUTE</span>
+        <h1>EMPOWER YOUR MIND,<br><span class="highlight-text">BUILD YOUR FUTURE</span></h1>
+        <p>Providing world-class interactive education, industry-aligned STEM & Business curricula, and mentorship from top global scholars.</p>
+        <div class="hero-actions">
+          <button class="btn-primary btn-lg" onclick="openAdmissionModal()">Start Your Learning Journey</button>
+          <a href="#courses" class="btn-outline btn-lg">Explore Courses</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="12000">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Graduated Students</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="150">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Expert Faculty</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number counter" data-target="98">0</span><span class="stat-plus">%</span>
+            <span class="stat-label">Placement Record</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop" alt="Students studying" class="hero-img">
+        <div class="floating-badge badge-1">
+          <span>🏆 Best EdTech Institute 2026</span>
+        </div>
+        <div class="floating-badge badge-2">
+          <span>💻 100% Practical Labs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-col">
+          <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=700&auto=format&fit=crop" alt="Campus Building" class="about-img">
+          <div class="exp-badge">
+            <span class="exp-num">20+</span>
+            <span class="exp-txt">Years of Academic Excellence</span>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <span class="section-subtitle">ABOUT APEX ACADEMY</span>
+          <h2 class="section-title">Inspiring the Next Generation of Global Leaders</h2>
+          <p class="lead-p">Apex Academy is dedicated to delivering transformative educational experiences that blend academic rigor with real-world innovation.</p>
+          <p>Our campus features smart digital classrooms, advanced AI & Robotics laboratories, research libraries, and active career development cells.</p>
+          <div class="about-feats">
+            <div class="f-item">
+              <span class="f-icon">✔️</span>
+              <div>
+                <h4>UGC & AICTE Approved Degrees</h4>
+                <p>Globally recognized certifications and university affiliations.</p>
+              </div>
+            </div>
+            <div class="f-item">
+              <span class="f-icon">✔️</span>
+              <div>
+                <h4>Industry Internship Programs</h4>
+                <p>Direct placement tie-ups with Fortune 500 tech companies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section with Filter Tabs -->
+  <section class="section courses-section" id="courses">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">EXPLORE PROGRAMS</span>
+        <h2 class="section-title">Career-Oriented Academic Programs</h2>
+        <p class="section-desc">Select a stream to discover undergraduate, postgraduate, and professional certification courses.</p>
+      </div>
+
+      <div class="course-tabs">
+        <button class="tab-btn active" onclick="filterCourse('all', this)">All Programs</button>
+        <button class="tab-btn" onclick="filterCourse('tech', this)">Computer & AI</button>
+        <button class="tab-btn" onclick="filterCourse('business', this)">Business & Mgmt</button>
+        <button class="tab-btn" onclick="filterCourse('design', this)">Design & Media</button>
+      </div>
+
+      <div class="courses-grid" id="courseGrid">
+        <div class="course-card" data-category="tech">
+          <div class="c-thumb">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop" alt="Computer Science">
+            <span class="c-badge">Tech</span>
+          </div>
+          <div class="c-body">
+            <h3>B.Tech in Artificial Intelligence & CS</h3>
+            <p>Master Machine Learning, Data Science, Full-Stack Web Architecture, and Cloud Computing with hands-on lab projects.</p>
+            <div class="c-footer">
+              <span>⏱️ 4 Years</span>
+              <button class="btn-link" onclick="openAdmissionModal('B.Tech AI & CS')">Enroll Now →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="business">
+          <div class="c-thumb">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop" alt="Business Administration">
+            <span class="c-badge">Business</span>
+          </div>
+          <div class="c-body">
+            <h3>MBA in Global Business Analytics</h3>
+            <p>Comprehensive training in corporate strategy, digital marketing, financial modeling, and leadership management.</p>
+            <div class="c-footer">
+              <span>⏱️ 2 Years</span>
+              <button class="btn-link" onclick="openAdmissionModal('MBA Analytics')">Enroll Now →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="design">
+          <div class="c-thumb">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&auto=format&fit=crop" alt="UI UX Design">
+            <span class="c-badge">Design</span>
+          </div>
+          <div class="c-body">
+            <h3>B.Des in UI/UX & Digital Product Design</h3>
+            <p>Design modern digital interfaces, wireframes, interactive prototypes, and human-computer interactions.</p>
+            <div class="c-footer">
+              <span>⏱️ 3 Years</span>
+              <button class="btn-link" onclick="openAdmissionModal('B.Des UI/UX')">Enroll Now →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="section achievements-section" id="achievements">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">WHY CHOOSE US</span>
+        <h2 class="section-title">Our Achievements & Campus Highlights</h2>
+      </div>
+      <div class="achieve-grid">
+        <div class="achieve-box">
+          <div class="a-icon">🏆</div>
+          <h3>Ranked #1 EdTech Institute</h3>
+          <p>Awarded National Excellence in STEM & AI Education 2025.</p>
+        </div>
+        <div class="achieve-box">
+          <div class="a-icon">💼</div>
+          <h3>500+ Corporate Hiring Partners</h3>
+          <p>Top recruitment partners including Google, Microsoft, TCS, and Amazon.</p>
+        </div>
+        <div class="achieve-box">
+          <div class="a-icon">🔬</div>
+          <h3>State-of-the-Art Research Labs</h3>
+          <p>Dedicated Robotics, IoT, and Cloud Computing Innovation Centers.</p>
+        </div>
+        <div class="achieve-box">
+          <div class="a-icon">🌐</div>
+          <h3>Global Student Exchange</h3>
+          <p>Partnered with international universities in USA, UK, and Singapore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Section -->
+  <section class="section faculty-section" id="faculty">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">OUR MENTORS</span>
+        <h2 class="section-title">Distinguished Faculty & Professors</h2>
+      </div>
+
+      <div class="faculty-grid">
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop" alt="Dr. Aristha Sen">
+          <div class="f-info">
+            <span class="f-dept">Computer Science</span>
+            <h3>Dr. Aristha Sen</h3>
+            <p>Ph.D. from IIT Bombay | Ex-Senior AI Researcher at Google.</p>
+          </div>
+        </div>
+
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop" alt="Prof. Vikram Das">
+          <div class="f-info">
+            <span class="f-dept">Business School</span>
+            <h3>Prof. Vikram Das</h3>
+            <p>MBA from IIM Ahmedabad | 15+ Yrs Corporate Strategy Advisor.</p>
+          </div>
+        </div>
+
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1580894732413-a70d2a45d070?w=400&auto=format&fit=crop" alt="Prof. Ananya Roy">
+          <div class="f-info">
+            <span class="f-dept">Design Department</span>
+            <h3>Prof. Ananya Roy</h3>
+            <p>Master of Design from NID | Award-winning Product Strategist.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="section events-section" id="events">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">CAMPUS LIFE</span>
+        <h2 class="section-title">Upcoming Academic Events & Hackathons</h2>
+      </div>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="e-date"><span>18</span> SEP</div>
+          <div class="e-content">
+            <h3>National AI & Robotics Hackathon 2026</h3>
+            <p>48-hour coding hackathon with ₹5,00,000 cash prize pool.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="e-date"><span>25</span> SEP</div>
+          <div class="e-content">
+            <h3>Global Entrepreneurship & Business Summit</h3>
+            <p>Keynote lectures by Fortune 500 CEOs and startup founders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Admission Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="c-info">
+          <span class="section-subtitle">ADMISSION ENQUIRY</span>
+          <h2 class="section-title">Get in Touch with Admission Cell</h2>
+          <p>Have questions regarding eligibility, fees, scholarships, or campus visits? Send your inquiry below.</p>
+          <div class="c-detail">
+            <p>📍 <strong>Campus Address:</strong> Apex Education Campus, Infocity, Bhubaneswar, Odisha 751024</p>
+            <p>📞 <strong>Admission Helpline:</strong> +91 80182 26416 / 1800-123-4567</p>
+            <p>📧 <strong>Email:</strong> admissions@apexacademy.edu.in</p>
+          </div>
+        </div>
+
+        <div class="c-form-wrap">
+          <div class="form-card">
+            <h3>Admission Enquiry Form</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="contactName" placeholder="Full Name *" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="email" id="contactEmail" placeholder="Email Address *" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="contactPhone" placeholder="Phone Number *" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea id="contactMessage" rows="3" placeholder="Tell us which course you are interested in..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-100" id="contactSubmitBtn">Submit Enquiry</button>
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <a href="#home" class="footer-logo">🎓 APEX ACADEMY</a>
+        <p>Empowering minds with quality education and global opportunities.</p>
+      </div>
+      <div>
+        <h4>Helpline</h4>
+        <p>📞 +91 80182 26416</p>
+        <p>Admissions Open 2026-27</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admission Modal -->
+  <div class="modal-overlay" id="admissionModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeAdmissionModal()">&times;</button>
+      <h3>Apply for Admission</h3>
+      <p>Fill out the application to start your learning journey.</p>
+      <form id="admissionForm" onsubmit="handleAdmissionSubmit(event)">
+        <div class="form-group">
+          <input type="text" id="appStudentName" placeholder="Student Full Name *" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="email" id="appEmail" placeholder="Email Address *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="appPhone" placeholder="Phone Number *" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <select id="appCourse" required>
+            <option value="B.Tech in Artificial Intelligence & CS">B.Tech in Artificial Intelligence & CS</option>
+            <option value="MBA in Global Business Analytics">MBA in Global Business Analytics</option>
+            <option value="B.Des in UI/UX Design">B.Des in UI/UX Design</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary w-100">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float & Back to Top -->
+  <a href="https://wa.me/918018226416" class="whatsapp-float" target="_blank" aria-label="WhatsApp">📱</a>
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

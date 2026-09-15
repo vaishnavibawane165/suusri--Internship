@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Luxury Real Estate | Exclusive Properties & Villas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🏰 <strong>NEW LUXURY LAUNCH:</strong> Emerald Bay Waterfront Villas in Bhubaneswar starting from ₹1.8 Cr!</span>
+    <button class="announcement-btn" onclick="openTourModal()">Schedule Tour →</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🏛️</span> APEX <span class="logo-accent">REALTY</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-item active">Home</a></li>
+        <li><a href="#properties" class="nav-item">Properties</a></li>
+        <li><a href="#categories" class="nav-item">Categories</a></li>
+        <li><a href="#whyus" class="nav-item">Why Us</a></li>
+        <li><a href="#agents" class="nav-item">Agents</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-primary header-cta" onclick="openTourModal()">Schedule a Tour</button>
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Search Bar -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">✨ LUXURY LIVING & PRIME LOCATIONS</span>
+        <h1>FIND YOUR DREAM<br><span class="highlight-text">LUXURY HOME TODAY</span></h1>
+        <p>Discover hand-picked premium villas, penthouses, and modern gated apartments in Bhubaneswar's top locations.</p>
+        <div class="hero-actions">
+          <a href="#properties" class="btn-primary btn-lg">Explore Properties</a>
+          <button class="btn-outline-light btn-lg" onclick="openTourModal()">Schedule a Tour</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties Section -->
+  <section class="section properties-section" id="properties">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">EXCLUSIVE LISTINGS</span>
+        <h2 class="section-title">Featured Luxury Properties</h2>
+        <p class="section-desc">Handpicked high-return residential and commercial estates.</p>
+      </div>
+
+      <div class="prop-tabs">
+        <button class="tab-btn active" onclick="filterProperty('all', this)">All Estates</button>
+        <button class="tab-btn" onclick="filterProperty('villa', this)">Villas</button>
+        <button class="tab-btn" onclick="filterProperty('apartment', this)">Apartments</button>
+        <button class="tab-btn" onclick="filterProperty('penthouse', this)">Penthouses</button>
+      </div>
+
+      <div class="properties-grid" id="propGrid">
+        <div class="property-card" data-category="villa">
+          <div class="p-thumb">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&auto=format&fit=crop" alt="Emerald Luxury Villa">
+            <span class="p-price">₹2.4 Cr</span>
+            <span class="p-tag">Villa</span>
+          </div>
+          <div class="p-body">
+            <h3>Emerald Bay Luxury Villa</h3>
+            <p class="p-loc">📍 Patia, Bhubaneswar</p>
+            <div class="p-specs">
+              <span>🛏️ 4 Beds</span>
+              <span>🛁 5 Baths</span>
+              <span>📐 4,200 sqft</span>
+            </div>
+            <button class="btn-outline w-100" onclick="openTourModal('Emerald Bay Villa')">Schedule Private Tour</button>
+          </div>
+        </div>
+
+        <div class="property-card" data-category="apartment">
+          <div class="p-thumb">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop" alt="Skyline Towers">
+            <span class="p-price">₹95 Lakhs</span>
+            <span class="p-tag">Apartment</span>
+          </div>
+          <div class="p-body">
+            <h3>Skyline Horizon 3BHK Residence</h3>
+            <p class="p-loc">📍 Jayadev Vihar, Bhubaneswar</p>
+            <div class="p-specs">
+              <span>🛏️ 3 Beds</span>
+              <span>🛁 3 Baths</span>
+              <span>📐 2,150 sqft</span>
+            </div>
+            <button class="btn-outline w-100" onclick="openTourModal('Skyline 3BHK')">Schedule Private Tour</button>
+          </div>
+        </div>
+
+        <div class="property-card" data-category="penthouse">
+          <div class="p-thumb">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&auto=format&fit=crop" alt="Royal Penthouse">
+            <span class="p-price">₹3.8 Cr</span>
+            <span class="p-tag">Penthouse</span>
+          </div>
+          <div class="p-body">
+            <h3>Royal Crown Duplex Penthouse</h3>
+            <p class="p-loc">📍 Saheed Nagar, Bhubaneswar</p>
+            <div class="p-specs">
+              <span>🛏️ 5 Beds</span>
+              <span>🛁 6 Baths</span>
+              <span>📐 5,800 sqft</span>
+            </div>
+            <button class="btn-outline w-100" onclick="openTourModal('Royal Penthouse')">Schedule Private Tour</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="c-info">
+          <span class="section-subtitle">GET IN TOUCH</span>
+          <h2 class="section-title">Schedule a Consultation or Tour</h2>
+          <p>Our real estate advisors are available to guide your investment journey.</p>
+          <p>📍 <strong>Office:</strong> Apex Tower, Infocity, Bhubaneswar 751024</p>
+          <p>📞 <strong>Phone:</strong> +91 80182 26416</p>
+          <p>📧 <strong>Email:</strong> sales@apexrealty.com</p>
+        </div>
+
+        <div class="c-form-wrap">
+          <div class="form-card">
+            <h3>Property Inquiry Form</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="contactName" placeholder="Your Name *" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="email" id="contactEmail" placeholder="Email Address *" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="contactPhone" placeholder="Phone Number *" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea id="contactMessage" rows="3" placeholder="Which property or location are you interested in?" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-100" id="contactSubmitBtn">Submit Inquiry</button>
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p>&copy; 2026 Apex Luxury Real Estate. All rights reserved. | SuuSri AI Assignment</p>
+    </div>
+  </footer>
+
+  <!-- Private Tour Modal -->
+  <div class="modal-overlay" id="tourModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeTourModal()">&times;</button>
+      <h3>Schedule a Private Property Tour</h3>
+      <p>Select your date and preferred property for a VIP site visit.</p>
+    </div>
+  </div>
+
+  <a href="https://wa.me/918018226416" class="whatsapp-float" target="_blank" aria-label="WhatsApp">🏡</a>
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
